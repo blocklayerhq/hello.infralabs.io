@@ -3,8 +3,8 @@ package main
 
 import (
 	"b.l/bl"
-	// "stackbrew.io/netlify"
-	// "stackbrew.io/file"
+	"stackbrew.io/netlify"
+	"stackbrew.io/file"
 )
 
 // We expose all the inputs and outputs of a HelloDocument
@@ -24,26 +24,23 @@ doc: HelloDocument & {
 	}
 }
 
-ls: bl.BashScript & {
-	input: "/index.html": doc.output.html
-	code: "cat -n -e /index.html"
+// 2. Wrap the document in a directory
+htmlDir: file.Create & {
+	filename: "/index.html"
+	contents: doc.output.html
 }
 
-// 2. Wrap the document in a directory
-// htmlDir: file.Create & {
-// 	filename: "/index.html"
-// 	contents: doc.output.html
-// }
-
 // 3. Deploy to netlify!
-//website: netlify.Site & {
-//	account: token: input.netlifyToken
-//	contents: htmlDir.result
-//}
+website: netlify.Site & {
+	name: "hello-infralabs-io"
+	domain: "hello.infralabs.io"
+	contents: htmlDir.result
+	account: token: input.netlifyToken
+}
 
 output: {
 	doc.output
 
 	// URL of the website
-	//url: website.url
+	url: website.url
 }

@@ -15,7 +15,7 @@ HelloDocument :: {
 		greeting: string | *"hello"
 	
 		// A name, or list of names
-		name: string | [...string] | *"world"
+		name: string | [...string]
 	}
 	
 	output: {
@@ -28,8 +28,12 @@ HelloDocument :: {
 	
 	// Capitalize names, and put them in a list
 	nameList: [...string]
-	nameList: [strings.ToTitle(input.name)] | [strings.ToTitle(name) for name in input.name]
-	
+	if (input.name & string) != _|_ {
+		nameList: [strings.ToTitle(input.name)]
+	}
+	if (input.name & [...string]) != _|_ {
+		nameList: [strings.ToTitle(name) for name in input.name]
+	}
 	
 	// GENERATE MARKDOWN OUTPUT
 	
