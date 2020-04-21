@@ -1,7 +1,7 @@
 {
-  "b.l/bl": "sha256:b15239acacebceaf03c29044f8508f186fdf9fa22a33e6935e806c63f170872a",
-  "stackbrew.io/aws": "sha256:b6b4fc3ca5dd484e577857ec4d62c0846a361fdd69fdbce2d5932ebd7c5843a7",
-  "stackbrew.io/file": "sha256:fded8d00950c82eb9ebc8ae61ec542addcee44fe5798a04e8ac257d6fcc60c1b",
-  "stackbrew.io/kubernetes": "sha256:951a2af8fd9b8021cfe32f482a073a28cf916808bf1e713c5c09ca8a712015f1",
-  "stackbrew.io/netlify": "sha256:534de4374c8e30c282ea8fb589bc15285a4399a2d418fd05d8ff22a15e4d95af"
+  "b.l/bl": "sha256:28fa84c1663a754209f89fd97197805cf79e2ef6c48aeecb58227edee3422b37",
+  "stackbrew.io/aws": "sha256:9cafd7ff96a206e480308604ca3bd27dc96415c520e37fb1905c331f74f6c086",
+  "stackbrew.io/file": "sha256:1612f917ccb137d4ad681836659e798e19f50a5020b641e2ebd07a57b5ee54ec",
+  "stackbrew.io/kubernetes": "sha256:1cdb2c7630c016d9cc998258e2508d0cd6413938ec91e317a6473f44d65ad348",
+  "stackbrew.io/netlify": "sha256:de1259ec79bef23b82f6fd06b1612cab12ce5cc27fe7b3f460d305c09d41a643"
 }

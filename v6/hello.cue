@@ -47,12 +47,13 @@ website: netlify.Site & {
 	account: token: input.netlifyToken
 }
 
+// 4. Configure our AWS credentials
 awsCreds: {
 	accessKey: input.awsAccessKey
 	secretKey: input.awsSecretKey
 }
 
-// Deploy the static index.html to S3
+// 5. Deploy the same static website to S3
 deployS3: s3.Put & {
 	config: aws.Config & {
 		region: "us-west-2"
@@ -62,6 +63,7 @@ deployS3: s3.Put & {
 	target: "s3://hello-s3.infralabs.io/"
 }
 
+// 6. Build a Docker image containing the website, served by Nginx
 dockerImage: bl.Build & {
 	context: htmlDir.result
 	dockerfile: """
@@ -72,7 +74,7 @@ dockerImage: bl.Build & {
 
 imageTarget: "125635003186.dkr.ecr.us-east-2.amazonaws.com/docs-demo:nginx-static"
 
-// Login to AWS ECR
+// 7. Login to AWS ECR so we can push
 ecrCredentials: ecr.Credentials & {
 	config: aws.Config & {
 		region: "us-east-2"
@@ -81,14 +83,14 @@ ecrCredentials: ecr.Credentials & {
 	target: imageTarget
 }
 
-// Push the docker image to AWS ECR
+// 8. Push the docker image to AWS ECR
 imagePush: bl.Push & {
-	source:      dockerImage.image
-	target:      imageTarget
-	credentials: ecrCredentials.credentials
+	source: dockerImage.image
+	target: imageTarget
+	auth:   ecrCredentials.auth
 }
 
-// Deploy resulted image to ECS
+// 9. Deploy the Docker image to AWS ECS
 deployECS: SimpleAppECS & {
 	infra: awsConfig: awsCreds
 	app: {
@@ -97,7 +99,7 @@ deployECS: SimpleAppECS & {
 	}
 }
 
-// Deploy resulted image to Kubernetes EKS
+// 10. Deploy the Docker image to Kubernetes EKS
 deployEKS: SimpleAppEKS & {
 	infra: awsConfig: awsCreds
 	app: {
