@@ -1,11 +1,10 @@
-// V4: let's deploy that html!
+// V4: hello world, in the cloud!
 
 package main
 
 import (
 	"b.l/bl"
 	"stackbrew.io/netlify"
-	"stackbrew.io/file"
 )
 
 input: {
@@ -13,7 +12,17 @@ input: {
 	netlifyToken: bl.Secret
 }
 
-// 1. Generate the doc
+// Setup Netlify
+website: netlify.Site & {
+	name: "hello-infralabs-io"
+	domain: "hello.infralabs.io"
+	account: {
+		token: input.netlifyToken
+		name: "blocklayer"
+	}
+}
+
+// Generate the html doc
 doc: HelloDocument & {
 	"input": {
 		greeting: input.greeting
@@ -22,25 +31,10 @@ doc: HelloDocument & {
 	}
 }
 
-// 2. Wrap the html doc in a directory
-htmlDir: file.Create & {
-	filename: "/index.html"
-	contents: doc.output.html
-}
-
-// 3. Deploy!
-website: netlify.Site & {
-	name: "hello-infralabs-io"
-	domain: "hello.infralabs.io"
-	contents: htmlDir.result
-	account: {
-		token: input.netlifyToken
-		name: "blocklayer"
-	}
-}
+// Deploy to Netlify
+website: contents: doc.htmlDir
 
 output: {
 	doc.output
-
 	url: website.url
 }
