@@ -1,9 +1,9 @@
-// V4: let's deploy that html!
-
 package main
 
 import (
 	"strings"
+
+	"stackbrew.io/file"
 )
 
 HelloDocument :: {
@@ -36,4 +36,11 @@ HelloDocument :: {
 		  </body>
 		</html>
 		"""
+
+	// Wrap the html doc in a directory, for easy deployment
+	createHtmlDir: file.Create & {
+		filename: "/index.html"
+		contents: output.html
+	}
+	htmlDir: createHtmlDir.result
 }
