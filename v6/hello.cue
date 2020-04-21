@@ -13,23 +13,17 @@ import (
 // We expose all the inputs and outputs of a HelloDocument
 input: {
 	HelloDocument.input
-
-	// Netlify API key
 	netlifyToken: bl.Secret
-
-	// AWS Access Key
 	awsAccessKey: bl.Secret
-
-	// AWS Secret Key
     awsSecretKey: bl.Secret
 }
 
 // 1. Generate the document
 doc: HelloDocument & {
 	"input": {
-		title: input.title
 		greeting: input.greeting
 		name: input.name
+		extraNames: input.extraNames
 	}
 }
 
