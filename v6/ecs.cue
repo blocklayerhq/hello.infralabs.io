@@ -60,7 +60,7 @@ SimpleAppECS :: {
             Description: "ECS App deployed with Blocklayer"
             Resources: resources
         })
-        stackName: "bl-ecs-\(subDomain)"
+        stackName: "bl-ecs-\(subDomain)-2"
     }
 
     out: cfn.stackOutput
