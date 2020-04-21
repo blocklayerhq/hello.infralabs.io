@@ -5,7 +5,6 @@ package main
 input: {
 	name: string | *"world"
 }
-
 output: {
 	html: string
 }

@@ -2,24 +2,13 @@
 
 package main
 
-import (
-	"b.l/bl"
-	"stackbrew.io/netlify"
-)
-
 input: {
 	HelloDocument.input
-	netlifyToken: bl.Secret
+	...
 }
-
-// Setup Netlify
-website: netlify.Site & {
-	name: "hello-infralabs-io"
-	domain: "hello.infralabs.io"
-	account: {
-		token: input.netlifyToken
-		name: "blocklayer"
-	}
+output: {
+	html: doc.output.html
+	url: website.url
 }
 
 // Generate the html doc
@@ -33,8 +22,3 @@ doc: HelloDocument & {
 
 // Deploy to Netlify
 website: contents: doc.htmlDir
-
-output: {
-	doc.output
-	url: website.url
-}

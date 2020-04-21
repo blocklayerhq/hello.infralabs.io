@@ -5,6 +5,9 @@ package main
 input: {
 	HelloDocument.input
 }
+output: {
+	html: doc.output.html
+}
 
 doc: HelloDocument & {
 	"input": {
@@ -12,8 +15,4 @@ doc: HelloDocument & {
 		name: input.name
 		extraNames: input.extraNames
 	}
-}
-
-output: {
-	doc.output
 }

@@ -1,5 +1,4 @@
 // V2: pimp my hello world!
-
 package main
 
 import (
@@ -11,14 +10,12 @@ input: {
 	extraNames: [...string] | *[]
 	greeting: string | *"hello"
 }
-
 output: {
 	html: string
 }
 
 // Put all names together, capitalized
 allNames: [strings.ToTitle(input.name)] + [strings.ToTitle(n) for n in input.extraNames]
-
 
 htmlMessages: ["      <li>\(input.greeting), dear <b>\(name)</b>!</li>" for name in allNames]
 
