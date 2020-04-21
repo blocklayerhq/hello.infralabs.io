@@ -1,3 +1,5 @@
+// V1: hello, world!
+
 package main
 
 input: {

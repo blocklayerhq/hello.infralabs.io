@@ -1,5 +1,3 @@
-// V4: let's deploy that html!
-
 package main
 
 import (

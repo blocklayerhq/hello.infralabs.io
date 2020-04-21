@@ -1,4 +1,4 @@
-// V3: split out HTML logic
+// V3: reusable hello world!
 
 package main
 

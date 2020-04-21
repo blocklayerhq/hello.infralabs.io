@@ -1,3 +1,5 @@
+// V2: pimp my hello world!
+
 package main
 
 import (
