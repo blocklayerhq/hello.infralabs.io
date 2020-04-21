@@ -1,4 +1,5 @@
 // V4: let's deploy that html!
+
 package main
 
 import (
@@ -7,30 +8,28 @@ import (
 	"stackbrew.io/file"
 )
 
-// We expose all the inputs and outputs of a HelloDocument
 input: {
 	HelloDocument.input
 
-	// Netlify API key
 	netlifyToken: bl.Secret
 }
 
-// 1. Generate the document
+// 1. Generate the doc
 doc: HelloDocument & {
 	"input": {
-		title: input.title
 		greeting: input.greeting
 		name: input.name
+		extraNames: input.extraNames
 	}
 }
 
-// 2. Wrap the document in a directory
+// 2. Wrap the html doc in a directory
 htmlDir: file.Create & {
 	filename: "/index.html"
 	contents: doc.output.html
 }
 
-// 3. Deploy to netlify!
+// 3. Deploy!
 website: netlify.Site & {
 	name: "hello-infralabs-io"
 	domain: "hello.infralabs.io"
@@ -41,6 +40,5 @@ website: netlify.Site & {
 output: {
 	doc.output
 
-	// URL of the website
 	url: website.url
 }
