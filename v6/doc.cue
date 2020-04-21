@@ -1,9 +1,10 @@
-// V4: let's deploy that html!
-
 package main
 
 import (
 	"strings"
+
+	"b.l/bl"
+	"stackbrew.io/file"
 )
 
 HelloDocument :: {
@@ -36,4 +37,22 @@ HelloDocument :: {
 		  </body>
 		</html>
 		"""
+
+	// Wrap the html doc in a directory, for easy deployment
+	createHtmlDir: file.Create & {
+		filename: "/index.html"
+		contents: output.html
+	}
+	htmlDir: createHtmlDir.result
+
+	// Wrap the html dir in a nginx container
+	buildContainerImage: bl.Build & {
+		context: htmlDir
+		dockerfile:
+			"""
+			FROM nginx
+			COPY . /usr/share/nginx/html
+			"""
+	}
+	containerImage: buildContainerImage.image
 }
