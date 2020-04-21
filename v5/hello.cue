@@ -22,9 +22,9 @@ input: {
 // 1. Generate the document
 doc: HelloDocument & {
 	"input": {
-		title: input.title
 		greeting: input.greeting
 		name: input.name
+		extraNames: input.extraNames
 	}
 }
 
