@@ -40,6 +40,7 @@ website: netlify.Site & {
 	contents: htmlDir.result
 	account: {
 		token: input.netlifyToken
+		name: "blocklayer"
 	}
 }
 
