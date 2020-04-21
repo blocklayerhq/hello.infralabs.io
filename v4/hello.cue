@@ -33,7 +33,10 @@ website: netlify.Site & {
 	name: "hello-infralabs-io"
 	domain: "hello.infralabs.io"
 	contents: htmlDir.result
-	account: token: input.netlifyToken
+	account: {
+		token: input.netlifyToken
+		name: "blocklayer"
+	}
 }
 
 output: {
