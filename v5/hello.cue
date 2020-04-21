@@ -1,4 +1,4 @@
-// V4: let's deploy that html!
+// V5: let's deploy that html to Netlify and S3!
 package main
 
 import (
