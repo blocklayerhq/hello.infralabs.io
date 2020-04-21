@@ -12,14 +12,10 @@ import (
 // We expose all the inputs and outputs of a HelloDocument
 input: {
 	HelloDocument.input
-
-	// Netlify API key
 	netlifyToken: bl.Secret
 
-	// AWS Access Key
+	// AWS credentials
 	awsAccessKey: bl.Secret
-
-	// AWS Secret Key
     awsSecretKey: bl.Secret
 }
 

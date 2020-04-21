@@ -10,7 +10,6 @@ import (
 
 input: {
 	HelloDocument.input
-
 	netlifyToken: bl.Secret
 }
 
