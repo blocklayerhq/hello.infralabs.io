@@ -22,12 +22,9 @@ htmlMessages: ["      <li>\(input.greeting), dear <b>\(name)</b>!</li>" for name
 output: html:
 	"""
 	<html>
-	  <head>
 	    <title>\(input.greeting)</title>
-	  </head>
-	  <body>
 	    <h1>\(input.greeting)</h1>
-	    <ul>\n\(strings.Join(htmlMessages, "\n"))</ul>
-	  </body>
+	    <ul>\n\(strings.Join(htmlMessages, "\n"))
+	    </ul>
 	</html>
 	"""
