@@ -1,10 +1,10 @@
 // V6: hello, multi-cloud world !!
 
+package main
+
 import (
 	"b.l/bl"
 )
-
-package main
 
 input: {
 	HelloDocument.input
