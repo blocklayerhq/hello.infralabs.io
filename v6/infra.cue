@@ -3,7 +3,8 @@
 package main
 
 import (
-	"b.l/bl"
+	"blocklayer.dev/bl"
+
 	"stackbrew.io/aws/s3"
 	"stackbrew.io/aws/ecr"
 	"stackbrew.io/netlify"

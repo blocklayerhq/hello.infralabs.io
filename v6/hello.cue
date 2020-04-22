@@ -3,7 +3,7 @@
 package main
 
 import (
-	"b.l/bl"
+	"blocklayer.dev/bl"
 )
 
 input: {

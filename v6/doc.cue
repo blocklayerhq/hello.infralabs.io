@@ -3,7 +3,7 @@ package main
 import (
 	"strings"
 
-	"b.l/bl"
+	"blocklayer.dev/bl"
 	"stackbrew.io/file"
 )
 

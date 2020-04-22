@@ -2,7 +2,8 @@ package main
 
 import (
     "strings"
-    "b.l/bl"
+
+	"blocklayer.dev/bl"
     "stackbrew.io/aws"
     "stackbrew.io/aws/eks"
     "stackbrew.io/kubernetes"

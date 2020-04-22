@@ -3,7 +3,9 @@ package main
 import (
     "strings"
     "encoding/json"
-    "b.l/bl"
+
+    "blocklayer.dev/bl"
+
     "stackbrew.io/aws"
     "stackbrew.io/aws/ecs"
     "stackbrew.io/aws/cloudformation"
