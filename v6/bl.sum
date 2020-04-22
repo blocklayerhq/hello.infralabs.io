@@ -1,6 +1,6 @@
 {
   "b.l/bl": "sha256:28fa84c1663a754209f89fd97197805cf79e2ef6c48aeecb58227edee3422b37",
-  "stackbrew.io/aws": "sha256:c1e6250e8e315809311b2171afe4cef08c9f87c26a30018802d343546249e916",
+  "stackbrew.io/aws": "sha256:0c59490be788f429cb37db02ca60814c74e78d9df8fe75ee1f03bae31fae6299",
   "stackbrew.io/file": "sha256:1f52e40e22a160ea27ab26db7c0a0ffdb1cf4958a3c8e92cd3cd21650ce88139",
   "stackbrew.io/kubernetes": "sha256:5af2dd6d62f560bac43f47d5199cf83416c00301d81fb20ad5ea485540ddb057",
   "stackbrew.io/netlify": "sha256:93e660e7a00b4487e35c4324c066d5f3e67c8e5348e90422909214290c42cfbf"
