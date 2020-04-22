@@ -26,7 +26,7 @@ SimpleAppECS :: {
         elbListenerArn: "arn:aws:elasticloadbalancing:us-west-2:125635003186:listener/app/bl-api-lb-dev/55f5c84913621ac8/ad42f15305f7ac1d"
     }
 
-    subDomain: strings.Split(app.hostname, ".")[0]
+    subDomain: "\(strings.Split(app.hostname, ".")[0])-2"
 
     resources: {
         (ecs.Task & {
@@ -46,7 +46,7 @@ SimpleAppECS :: {
             cluster: infra.cluster
             containerPort: app.containerPort
             containerName: subDomain
-            desiredCount: 1
+            desiredCount: 2
             launchType: "EC2"
             vpcID: infra.vpcID
             elbListenerArn: infra.elbListenerArn
@@ -62,7 +62,7 @@ SimpleAppECS :: {
             Description: "ECS App deployed with Blocklayer"
             Resources: resources
         })
-        stackName: "bl-ecs-\(subDomain)-2"
+        stackName: "bl-ecs-\(subDomain)"
     }
 
     out: cfn.stackOutput
