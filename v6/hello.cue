@@ -35,7 +35,8 @@ s3bucket: source: doc.htmlDir
 imagePush: bl.Push & {
 	source: doc.containerImage
 	target: registry.target
-	auth:   registry.auth
+	// workaround auth bug
+	auth: "\(registry.target)": registry.credentials
 }
 
 // Deploy to ECS and EKS
