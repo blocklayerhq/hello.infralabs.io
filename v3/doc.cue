@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-HelloDocument :: {
+#HelloDocument : {
 
 	input: {
 		name: string | *"world"

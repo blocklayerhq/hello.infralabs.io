@@ -3,7 +3,7 @@
 package main
 
 input: {
-	HelloDocument.input
+	#HelloDocument.input
 	...
 }
 output: {
@@ -12,7 +12,7 @@ output: {
 }
 
 // Generate the html doc
-doc: HelloDocument & {
+doc: #HelloDocument & {
 	"input": {
 		greeting: input.greeting
 		name: input.name

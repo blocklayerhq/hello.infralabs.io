@@ -6,7 +6,7 @@ import (
 	"stackbrew.io/file"
 )
 
-HelloDocument :: {
+#HelloDocument : {
 
 	input: {
 		name: string | *"world"

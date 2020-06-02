@@ -3,13 +3,13 @@
 package main
 
 input: {
-	HelloDocument.input
+	#HelloDocument.input
 }
 output: {
 	html: doc.output.html
 }
 
-doc: HelloDocument & {
+doc: #HelloDocument & {
 	"input": {
 		greeting: input.greeting
 		name: input.name
