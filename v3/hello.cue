@@ -2,17 +2,4 @@
 
 package main
 
-input: {
-	#HelloDocument.input
-}
-output: {
-	html: doc.output.html
-}
-
-doc: #HelloDocument & {
-	"input": {
-		greeting: input.greeting
-		name: input.name
-		extraNames: input.extraNames
-	}
-}
+doc: #HelloDocument

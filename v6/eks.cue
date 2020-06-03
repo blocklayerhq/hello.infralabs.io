@@ -9,6 +9,15 @@ import (
     "stackbrew.io/kubernetes"
 )
 
+// Setup AWS EKS (Elastic Kubernetes Service)
+deployEKS: SimpleAppEKS & {
+	infra: awsConfig: {
+		accessKey: admin.aws.accessKey
+		secretKey: admin.aws.secretKey
+	}
+	app: hostname: "hello-kube.infralabs.io"
+}
+
 kubernetesConfigYAML :: {
     containerImage: string
     containerPort: uint

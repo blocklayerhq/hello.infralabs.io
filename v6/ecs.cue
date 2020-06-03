@@ -11,6 +11,15 @@ import (
     "stackbrew.io/aws/cloudformation"
 )
 
+// Setup AWS ECS (Elastic Container Service)
+deployECS: SimpleAppECS & {
+	infra: awsConfig: {
+		accessKey: admin.aws.accessKey
+		secretKey: admin.aws.secretKey
+	}
+	app: hostname: "hello-ecs.infralabs.io"
+}
+
 // SimpleECSApp is a simplified interface for ECS
 SimpleAppECS :: {
     app: SimpleApp
